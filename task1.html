@@ -1,0 +1,87 @@
+ <!-- API Integration  -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>API Data Display</title>
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             margin: 0;
+             padding: 0;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             min-height: 100vh;
+             background-color: #f0f0f0;
+         }
+         .container {
+             max-width: 600px;
+             margin: 20px;
+             padding: 20px;
+             background: #fff;
+             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+             border-radius: 8px;
+         }
+         .data {
+             margin-top: 20px;
+         }
+         .loading {
+             color: #007bff;
+         }
+     </style>
+ </head>
+ <body>
+     <div class="container">
+         <h1>Weather Data</h1>
+         <button id="fetchDataBtn">Fetch Weather</button>
+         <div class="data" id="dataContainer">
+             <p class="loading" id="loading" style="display:none;">Loading...</p>
+         </div>
+     </div>
+ 
+     <script>
+         const apiKey = "your_openweathermap_api_key"; // Replace with your API key
+         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+ 
+         const fetchDataBtn = document.getElementById('fetchDataBtn');
+         const dataContainer = document.getElementById('dataContainer');
+         const loading = document.getElementById('loading');
+ 
+         fetchDataBtn.addEventListener('click', () => {
+             loading.style.display = 'block';
+             dataContainer.innerHTML = ''; // Clear previous data
+ 
+             fetch(apiUrl)
+                 .then(response => {
+                     if (!response.ok) {
+                         throw new Error('Network response was not ok');
+                     }
+                     return response.json();
+                 })
+                 .then(data => {
+                     loading.style.display = 'none';
+                     displayData(data);
+                 })
+                 .catch(error => {
+                     loading.style.display = 'none';
+                     dataContainer.innerHTML = `<p>Error fetching data: ${error.message}</p>`;
+                 });
+         });
+ 
+         function displayData(data) {
+             const weatherHTML = `
+                 <h2>${data.name}</h2>
+                 <p>Temperature: ${data.main.temp} &deg;C</p>
+                 <p>Weather: ${data.weather[0].description}</p>
+                 <p>Humidity: ${data.main.humidity}%</p>
+                 <p>Wind Speed: ${data.wind.speed} m/s</p>
+             `;
+             dataContainer.innerHTML = weatherHTML;
+         }
+     </script>
+ </body>
+ </html>
