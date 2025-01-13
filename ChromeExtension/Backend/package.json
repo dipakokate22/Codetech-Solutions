@@ -1,0 +1,16 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "Backend for Chrome extension productivity tracker",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Your Name",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.20.3",
+        "express": "^4.21.2",
+        "mysql": "^2.18.1"
+    }
+}
