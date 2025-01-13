@@ -59,8 +59,10 @@ Setup Instructions:       <br>
 Clone the repository.       <br>
 Install dependencies by running npm install.       <br>
 Start the server with node server.js.       <br>
-Open http://localhost:3000 in your browser to start chatting.       <br>       
+Open http://localhost:3000 in your browser to start chatting.       <br>         <br>     
 
+Output: ![Screenshot 2025-01-13 145901](https://github.com/user-attachments/assets/7ad92bf9-194b-41a1-84aa-78c115f5743b)
+       <br>
 <br> <br> <br> <br>     
 
 
