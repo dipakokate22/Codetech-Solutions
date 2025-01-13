@@ -33,8 +33,10 @@ Setup Instructions:        <br>
 Clone the repository.        <br>
 Set up the API key for the weather service.        <br>
 Open the HTML file in your browser.        <br>
-Enter a city name to view its weather data.        <br>
+Enter a city name to view its weather data.        <br>        <br>
 
+
+Output:![Screenshot 2025-01-13 145408](https://github.com/user-attachments/assets/df940bef-068c-4fee-8477-1de75e2cdaf2)          <br>        <br>
 <br> <br> <br> <br>
 
 
